@@ -6,7 +6,6 @@ public class methods {
         if (word == null || word.isEmpty()) {
             return "";
         }
-
         String result = "";
         for (int i = 0; i < word.length(); i++) {
             if (!result.contains(String.valueOf(word.charAt(i)))) {
