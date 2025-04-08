@@ -10,10 +10,14 @@ public class methods {
                 sum += value;
             }
 
+            /*
             double average = sum / row.length;
             if(average > highestAverage){
                 highestAverage = average;
             }
+            Commented code can be remplaced for the next one
+            */
+            highestAverage = Math.max(highestAverage, sum / row.length);
         }
         return highestAverage;
     }
