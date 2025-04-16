@@ -34,13 +34,13 @@ public class methods {
         int cont = 0;
         int sizeWP = wordP.length();
 
-        while(sizeWP>=pattern.length() && cont<sizeWP){
-            if(wordP.contains(pattern)){
-                wordP= wordP.replaceFirst(pattern, "");
+        for(int i =0; i<= wordP.length() - pattern.length(); i++){
+            String sub = wordP.substring(i, i + pattern.length());
+            if(sub.equals(pattern)){
                 matching++;
             }
-            cont++;
         }
+
         return matching;
     }
 }
