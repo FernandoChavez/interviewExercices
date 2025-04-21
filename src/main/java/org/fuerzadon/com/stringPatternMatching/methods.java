@@ -31,11 +31,25 @@ public class methods {
         }
         */
 
-        int cont = 0;
-        int sizeWP = wordP.length();
 
-        for(int i =0; i<= wordP.length() - pattern.length(); i++){
-            String sub = wordP.substring(i, i + pattern.length());
+        /*
+         StringBuilder wordP = new StringBuilder("");
+		 char cWord[] =  word.toCharArray();
+		 for(char c : cWord) {
+			 if(vowels.contains(String.valueOf(c))) {
+				 wordP.append("0");
+			 }else {
+				 wordP.append("1");
+			 }
+		 }
+
+
+        * */
+
+        int sizeP= pattern.length();
+
+        for(int i =0; i<= wordP.length() - sizeP; i++){
+            String sub = wordP.substring(i, i + sizeP);
             if(sub.equals(pattern)){
                 matching++;
             }
