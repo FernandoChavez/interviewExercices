@@ -8,18 +8,24 @@ public class methods {
         }
 
         char [] arrayC = msg.toCharArray();
-        StringBuilder newMsg = new StringBuilder(), largeUninterrupted = new StringBuilder();
+        StringBuilder current = new StringBuilder(), longest = new StringBuilder();
 
         for(char c : arrayC){
-            if(newMsg.indexOf(String.valueOf(c)) == -1){
-                newMsg.append(c);
-            }else{
-                if(largeUninterrupted.length()<newMsg.length()){
-                    largeUninterrupted = newMsg;
-                }
-                newMsg = new StringBuilder();
+            String ch = String.valueOf(c);
+            if(current.indexOf(ch) != -1){
+                current = new StringBuilder(current.substring(current.indexOf(ch)+1));
+            }
+            current.append(ch);
+
+            if(current.length()> longest.length()){
+                longest= new StringBuilder(current);
             }
         }
-        return largeUninterrupted.toString();
+        return longest.toString();
+    }
+
+
+    public static String norepetidos2(String msg){
+        return "";
     }
 }
