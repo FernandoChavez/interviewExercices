@@ -1,12 +1,8 @@
 package org.fuerzadon.com.chessboard;
 
-import java.util.ArrayList;
-
 public class methods {
     /*
-        0-vacio,1-queen, 2.-queenRangeAttack
-        posicionarReina();
-
+        0-vacio,2-queen, 1.-queenRangeAttack
 
     */
 
@@ -54,48 +50,55 @@ public class methods {
 
 
 
-    public static int[][] addQueen(int [][] chessboard, int row, int column){
+    public static void addQueen(int [][] chessboard, int row, int column){
         chessboard[row][column]=2;
-        return chessboard;
     }
 
 
-    public static int[][] rangeAttack(int [][] chessboard, int row, int column){
+    public static void rangeAttack(int [][] chessboard, int row, int column){
 
         // Vertical
         for(int r = 0; r<chessboard.length; r++){
-            if(r!=row){
+            if(r!=row && chessboard[r][column] != 2){
                 chessboard[r][column]=1;
             }
         }
 
         //Horizontal
         for(int c = 0; c<chessboard.length; c++){
-            if(c!=column){
+            if(c!=column && chessboard[row][c] != 2){
                 chessboard[row][c]=1;
             }
         }
 
         // Diagonal arriba-izquierda
         for(int r = row -1, c = column-1; r>=0 && c>=0; r--, c--){
-            chessboard[r][c] = 1;
+            if(chessboard[r][c] != 2 ){
+                chessboard[r][c] = 1;
+            }
         }
 
         // Diagonal arriba-derecha
         for(int r = row-1, c=column +1; r>=0 && c<  chessboard.length; r--, c++){
-            chessboard[r][c] = 1;
+            if(chessboard[r][c] != 2 ){
+                chessboard[r][c] = 1;
+            }
         }
 
         // Diagonal abajo-izquierda
         for(int r = row+1, c = column - 1; r<chessboard.length && c>=0; r++, c-- ){
-            chessboard[r][c] = 1;
+            if(chessboard[r][c] != 2 ){
+                chessboard[r][c] = 1;
+            }
         }
 
         //Diagonal abajo-derecha
         for(int r = row + 1, c = column + 1; r<chessboard.length && c<chessboard.length; r++, c++){
-            chessboard[r][c] = 1;
+            if(chessboard[r][c] != 2 ){
+                chessboard[r][c] = 1;
+            }
         }
 
-        return chessboard;
+
     }
 }

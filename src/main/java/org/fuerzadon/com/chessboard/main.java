@@ -18,5 +18,7 @@ public class main {
         int r = 3, c = 3;
 
         methods.fullChessboard(cheeboard, r, c);
+        System.out.println();
+        methods2.fullChessboard(cheeboard, r, c);
     }
 }
