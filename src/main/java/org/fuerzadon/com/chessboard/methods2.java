@@ -2,6 +2,10 @@ package org.fuerzadon.com.chessboard;
 
 public class methods2 {
 
+    private static final int EMPTY = 0;
+    private static final int ATTACKED = 1;
+    private static final int QUEEN = 2;
+
     public static void fullChessboard(int [][] chessboard, int row, int column){
         placeQueenAndMark(chessboard, row, column);
         int[]safePosition = findSafePosition(chessboard);
@@ -21,7 +25,7 @@ public class methods2 {
     public static int[] findSafePosition(int[][] chessboard){
         for(int r = 0; r<chessboard.length; r++){
             for(int c = 0; c<chessboard.length; c++){
-                if(chessboard[r][c] == 0){
+                if(chessboard[r][c] == EMPTY){
                     return new int[]{r,c};
                 }
             }
@@ -49,14 +53,14 @@ public class methods2 {
 
 
     public static void addQueen(int [][] chessboard, int row, int column){
-        chessboard[row][column]=2;
+        chessboard[row][column]=QUEEN;
     }
 
     private static void markDirection(int[][] board, int row, int col, int deltaRow, int deltaCol){
         int r = row+ deltaRow, c = col + deltaCol;
         while(r >= 0 && r< board.length && c>=0 && c< board.length){
-            if(board[r][c] !=2){
-                board[r][c]=1;
+            if(board[r][c] !=QUEEN){
+                board[r][c]=ATTACKED;
             }
             r+=deltaRow;
             c+=deltaCol;
